@@ -80,7 +80,6 @@ class Data extends AbstractHelper
         return $data;
     }
 
-    
     /**
      * Get Random Seller.
      *
