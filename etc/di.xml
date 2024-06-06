@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * O2TI PagBank Dynamic Account Module.
+ *
+ * Copyright © 2024 O2TI. All rights reserved.
+ *
+ * @author    Bruno Elisei <brunoelisei@o2ti.com>
+ * @license   See LICENSE for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="O2TI\PagBankDynamicAccount\Block\Adminhtml\Form\Field\AddAccounts">
+        <arguments>
+            <argument name="oauth" xsi:type="object">PagBank\PaymentMagento\Block\Adminhtml\System\Config\Oauth</argument>
+        </arguments>
+    </type>
+
+    <!-- Plugin add New Config Provider for Dynamic Account -->
+    <type name="PagBank\PaymentMagento\Model\Ui\ConfigProviderCc">
+        <plugin name="o2ti_dynamic_account_plugin" type="O2TI\PagBankDynamicAccount\Plugin\PagBank\Model\Ui\ConfigProviderCcPlugin" />
+    </type>
+
+    <type name="PagBank\PaymentMagento\Gateway\Http\TransferFactory">
+        <plugin name="modify_transfer_factory" type="O2TI\PagBankDynamicAccount\Plugin\PagBank\Gateway\Http\ModifyTransferFactory" sortOrder="10"/>
+    </type>
+
+    <type name="PagBank\PaymentMagento\Observer\DataAssignCcObserver">
+        <plugin name="o2ti_dynamic_account_cc_data_assign_plugin" type="O2TI\PagBankDynamicAccount\Plugin\PagBank\Observer\DataAssignCcObserverPlugin" sortOrder="10" />
+    </type>
+
+    <type name="PagBank\PaymentMagento\Observer\DataAssignPayerDataObserver">
+        <plugin name="o2ti_dynamic_account_cc_data_assign_plugin" type="O2TI\PagBankDynamicAccount\Plugin\PagBank\Observer\DataAssignPayerDataObserverPlugin" sortOrder="10" />
+    </type>
+
+    <!-- Boleto - Order Request -->
+    <virtualType name="PagBankBoletoOrderRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="metaSellerAccountId" xsi:type="string">O2TI\PagBankDynamicAccount\Gateway\Request\SellerMetadataRequest</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Pix - Order Request -->
+    <virtualType name="PagBankPixOrderRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="metaSellerAccountId" xsi:type="string">O2TI\PagBankDynamicAccount\Gateway\Request\SellerMetadataRequest</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- DeepLink - Order Request -->
+    <virtualType name="PagBankDeepLinkOrderRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="metaSellerAccountId" xsi:type="string">O2TI\PagBankDynamicAccount\Gateway\Request\SellerMetadataRequest</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cc - Request -->
+    <virtualType name="PagBankCcAuthorizationRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="metaSellerAccountId" xsi:type="string">O2TI\PagBankDynamicAccount\Gateway\Request\SellerMetadataRequest</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Vault - Request -->
+    <virtualType name="PagBankCcVaultRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="metaSellerAccountId" xsi:type="string">O2TI\PagBankDynamicAccount\Gateway\Request\SellerMetadataRequest</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Base - Fetch - Info Request -->
+    <virtualType name="PagBankBaseFetchRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="metaSellerAccountId" xsi:type="string">O2TI\PagBankDynamicAccount\Gateway\Request\SellerMetadataRequest</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    
+    <!-- Base - Refund - Transaction Info Request -->
+    <virtualType name="PagBankRefundRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="metaSellerAccountId" xsi:type="string">O2TI\PagBankDynamicAccount\Gateway\Request\SellerMetadataRequest</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    
+    <!-- Base - Accept Payment Request -->
+    <virtualType name="PagBankAcceptPaymentRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="metaSellerAccountId" xsi:type="string">O2TI\PagBankDynamicAccount\Gateway\Request\SellerMetadataRequest</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Base - Deny Payment Request -->
+    <virtualType name="PagBankDenyPaymentRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="metaSellerAccountId" xsi:type="string">O2TI\PagBankDynamicAccount\Gateway\Request\SellerMetadataRequest</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

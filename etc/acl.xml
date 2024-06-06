@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * O2TI PagBank Dynamic Account Module.
+ *
+ * Copyright © 2024 O2TI. All rights reserved.
+ *
+ * @author    Bruno Elisei <brunoelisei@o2ti.com>
+ * @license   See LICENSE for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="O2TI_PagBankDynamicAccount::config_pagbank_dynamic_account" title="O2TI PagBank Dynamic Account" sortOrder="100">
+                    <resource id="O2TI_PagBankDynamicAccount::config_pagbank_dynamic_account_general" title="Configurações Gerais" sortOrder="10"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

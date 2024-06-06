@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * O2TI PagBank Dynamic Account Module.
+ *
+ * Copyright © 2024 O2TI. All rights reserved.
+ *
+ * @author    Bruno Elisei <brunoelisei@o2ti.com>
+ * @license   See LICENSE for license details.
+ */
+-->
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="accounts" translate="label comment" type="text" sortOrder="200" showInDefault="1" showInWebsite="0" showInStore="0">
+        <label>Dynamic Accounts</label>
+        <field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/pagbank_paymentmagento/dynamic_account_enable</config_path>
+        </field>
+        <field id="dynamic_accounts_production" translate="label" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+            <label>Accounts</label>
+            <frontend_model>O2TI\PagBankDynamicAccount\Block\Adminhtml\Form\Field\AddAccounts</frontend_model>
+            <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+            <config_path>payment/pagbank_paymentmagento/dynamic_accounts_production</config_path>
+            <depends>
+                 <field id="*/*/settings/environment">production</field>
+            </depends>
+        </field>
+        <field id="dynamic_accounts_sandbox" translate="label" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+            <label>Accounts</label>
+            <frontend_model>O2TI\PagBankDynamicAccount\Block\Adminhtml\Form\Field\AddAccounts</frontend_model>
+            <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+            <config_path>payment/pagbank_paymentmagento/dynamic_accounts_sandbox</config_path>
+            <depends>
+                 <field id="*/*/settings/environment">sandbox</field>
+            </depends>
+        </field>
+    </group>
+</include>
