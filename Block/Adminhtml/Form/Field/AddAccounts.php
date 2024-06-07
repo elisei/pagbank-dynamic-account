@@ -153,7 +153,7 @@ class AddAccounts extends AbstractFieldArray
     {
         $html = parent::_toHtml();
         $addUrl = $this->getUrlToConnect(); // Obtém a URL do método getUrlToConnect
-        $html .= '<button type="button" class="action-add" onclick="window.location.href=\'' . $addUrl . '\'"><span>' . __('Connect New Account') . '</span></button>';
+        $html .= '<button type="button" class="action-default scalable primary" onclick="window.location.href=\'' . $addUrl . '\'"><span>' . __('Connect New Account') . '</span></button>';
         return $html;
     }
 
