@@ -30,6 +30,10 @@ bin/magento setup:di:compile
 O período de validade da autenticação é de 1 ano, nesse módulo não há regeneração das contas, você pode utilizar o valor salvo em refresh_token para gerar nova credencial e cadastrar manualmente antes desse período, [siga as orientações da documentação do PagBank](https://dev.pagbank.uol.com.br/reference/renovar-access-token) para esse processo.
 
 
+## Orientaçõe Adicionais
+
+Você pode alterar o modelo de decisão das contas, fazendo um around da [função getRandomSeller](https://github.com/elisei/pagbank-dynamic-account/blob/main/Helper/Data.php#L90) essa funções originalmente recebe objeto Magento\Quote\Api\Data\CartInterface o que possibilida por exemplo a analisar os itens presentes no carrinho para definir a conta selecionada.
+
 ## Resalvas
 
 A O2TI e seus desenvolvedores não se responsabilizam pelo uso do módulo, por favor fazam testes e caso necessário abram um issue conosco!
