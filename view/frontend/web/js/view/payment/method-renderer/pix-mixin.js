@@ -15,17 +15,15 @@ define([
     var pixMixin = {
 
         getData: function () {
-            if (this.useSellerAccountId()) {
-                var data = wrapper.wrap(this._super, function (originalFunction) {
-                    var originalData = originalFunction();
-                    
+            var data = wrapper.wrap(this._super, function (originalFunction) {
+                var originalData = originalFunction();
+                if (this.useSellerAccountId()) {        
                     originalData['additional_data']['account_id'] = this.getSellerAccountId();
-    
-                    return originalData;
-                });
-    
-                return data.call(this);
-            }
+                }
+                return originalData;
+            });
+
+            return data.call(this);
         },
 
         /**

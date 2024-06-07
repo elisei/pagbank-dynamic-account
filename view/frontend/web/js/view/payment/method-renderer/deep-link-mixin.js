@@ -12,14 +12,14 @@ define([
 ], function (wrapper) {
     'use strict';
 
-    var boletoMixin = {
+    var deepLinkMixin = {
 
         getData: function () {
             var data = wrapper.wrap(this._super, function (originalFunction) {
                 var originalData = originalFunction();
-                if (this.useSellerAccountId()) {                    
+                if (this.useSellerAccountId()) {        
                     originalData['additional_data']['account_id'] = this.getSellerAccountId();
-                }    
+                }
                 return originalData;
             });
 
@@ -48,6 +48,6 @@ define([
     };
 
     return function (target) {
-        return target.extend(boletoMixin);
+        return target.extend(deepLinkMixin);
     };
 });

@@ -16,6 +16,8 @@
         </arguments>
     </type>
 
+    <preference for="PagBank\PaymentMagento\Gateway\Response\VaultDetailsHandler" type="O2TI\PagBankDynamicAccount\Plugin\PagBank\Gateway\Response\VaultDetailsHandlerPlugin" />
+
     <!-- Plugin add New Config Provider for Dynamic Account -->
     <type name="PagBank\PaymentMagento\Model\Ui\ConfigProviderCc">
         <plugin name="o2ti_dynamic_account_plugin" type="O2TI\PagBankDynamicAccount\Plugin\PagBank\Model\Ui\ConfigProviderCcPlugin" />
