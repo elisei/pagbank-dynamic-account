@@ -9,7 +9,6 @@
     "require": {
         "php": "~8.1.0||~8.2.0||~8.3.0",
         "magento/framework": "103.0.*",
-        "magento/framework-message-queue": "100.4.*",
         "pagbank/payment-magento": "~100"
     },
     "autoload": {
@@ -17,7 +16,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "O2TI\\ProcessOrderViaRabbitMQ\\": ""
+            "O2TI\\PagBankDynamicAccount\\": ""
         }
     }
 }
