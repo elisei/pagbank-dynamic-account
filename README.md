@@ -26,6 +26,10 @@ bin/magento setup:upgrade
 bin/magento setup:di:compile
 ```
 
+## Advertência
+O período de validade da autenticação é de 1 ano, nesse módulo não há regeneração das contas, você pode utilizar o valor salvo em refresh_token para gerar nova credencial e cadastrar manualmente antes desse período, [siga as orientações da documentação do PagBank](https://dev.pagbank.uol.com.br/reference/renovar-access-token) para esse processo.
+
+
 ## Resalvas
 
 A O2TI e seus desenvolvedores não se responsabilizam pelo uso do módulo, por favor fazam testes e caso necessário abram um issue conosco!
