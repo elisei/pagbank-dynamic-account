@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * O2TI PagBank Dynamic Account Module.
+ *
+ * Copyright © 2024 O2TI. All rights reserved.
+ *
+ * @author    Bruno Elisei <brunoelisei@o2ti.com>
+ * @license   See LICENSE for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Change Template Info -->
+    <type name="PagBank\PaymentMagento\Block\Sales\Info\Boleto">
+        <plugin name="custom_template_override_plugin" type="O2TI\PagBankDynamicAccount\Plugin\PagBank\Block\Sales\Info\BoletoPlugin"/>
+    </type>
+    <type name="PagBank\PaymentMagento\Block\Sales\Info\DeepLink">
+        <plugin name="custom_template_override_plugin" type="O2TI\PagBankDynamicAccount\Plugin\PagBank\Block\Sales\Info\DeepLinkPlugin"/>
+    </type>
+    <type name="PagBank\PaymentMagento\Block\Sales\Info\Pix">
+        <plugin name="custom_template_override_plugin" type="O2TI\PagBankDynamicAccount\Plugin\PagBank\Block\Sales\Info\PixPlugin"/>
+    </type>
+</config>
