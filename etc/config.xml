@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * PagBank Payment Magento Module.
+ *
+ * Copyright © 2023 PagBank. All rights reserved.
+ *
+ * @author    Bruno Elisei <brunoelisei@o2ti.com>
+ * @license   See LICENSE for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <pagbank_paymentmagento_cc>
+                <group>pagbank_group</group>
+                <model>PagBankCcFacade</model>
+                <payment_action>authorize_capture</payment_action>
+                <paymentInfoKeys>cc_installments,cc_type,cc_number,cc_exp_month,cc_exp_year,cc_cardholder_name,payer_tax_id,payer_phone,three_ds_session,three_ds_auth,three_ds_auth_status,account_id</paymentInfoKeys>
+                <privateInfoKeys>three_ds_session,three_ds_auth,three_ds_auth_status,account_id</privateInfoKeys>
+            </pagbank_paymentmagento_cc>
+            <pagbank_paymentmagento_cc_vault>
+                <group>pagbank_group</group>
+                <model>PagBankCcVaultFacade</model>
+                <paymentInfoKeys>cc_installments,cc_type,cc_number,cc_exp_month,cc_exp_year,cc_cardholder_name,payer_tax_id,payer_phone,three_ds_session,three_ds_auth,three_ds_auth_status,account_id</paymentInfoKeys>
+                <privateInfoKeys>three_ds_session,three_ds_auth,three_ds_auth_status,account_id</privateInfoKeys>
+            </pagbank_paymentmagento_cc_vault>
+            <pagbank_paymentmagento_pix>
+                <group>pagbank_group</group>
+                <model>PagBankPixFacade</model>
+                <paymentInfoKeys>qr_code_image,qr_code,expiration_date,payer_name,payer_phone,payer_tax_id,account_id</paymentInfoKeys>
+                <privateInfoKeys>account_id</privateInfoKeys>
+                <sort_order>11</sort_order>
+            </pagbank_paymentmagento_pix>
+            <pagbank_paymentmagento_boleto>
+                <group>pagbank_group</group>
+                <model>PagBankBoletoFacade</model>
+                <paymentInfoKeys>boleto_line_code,boleto_pdf_href,expiration_date,payer_name,payer_phone,payer_tax_id,account_id</paymentInfoKeys>
+                <privateInfoKeys>account_id</privateInfoKeys>
+            </pagbank_paymentmagento_boleto>
+            <pagbank_paymentmagento_deep_link>
+                <model>PagBankDeepLinkFacade</model>
+                <paymentInfoKeys>qr_code_url_image,deep_link_url,expiration_date,payer_name,payer_phone,payer_tax_id,account_id</paymentInfoKeys>
+                <privateInfoKeys>account_id</privateInfoKeys>
+            </pagbank_paymentmagento_deep_link>
+        </payment>
+    </default>
+</config>
