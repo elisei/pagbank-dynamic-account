@@ -1,0 +1,28 @@
+Status,Status
+"Account Id","Id da Conta"
+"Access Token","Token de Acesso"
+"Public Key","Chave Pública"
+"Refresh Token","Token de Atualização"
+Add,Adicionar
+"Connect New Account","Conectar Nova Conta"
+Disabled,Desativado
+Enabled,Ativado
+"You are connected to PagBank. =)","Você está conectado ao PagBank. =)"
+"Unable to get the code, try again. =(","Não foi possível obter o código, tente novamente. =("
+"No sellers available","Nenhum vendedor disponível"
+"No active sellers available","Nenhum vendedor ativo disponível"
+Expiration,Expiração
+Link,Link
+"Download the Boleto","Baixar o Boleto"
+"Line Code","Código de Linha"
+"Payer Name","Nome do Pagador"
+"Payer Tax Id","CPF/CNPJ do Pagador"
+"Pay by Compute","Pagar pelo Computador"
+"Pay by Mobile","Pagar pelo Celular"
+"Payer Phone","Telefone do Pagador"
+"Pix Qr Code","Código QR do Pix"
+"Pix Copy and Paste","Pix Copiar e Colar"
+"Dynamic Accounts","Contas Dinâmicas"
+Enable,Ativar
+Accounts,Contas
+"account_id","Id da Conta"

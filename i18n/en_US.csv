@@ -1,0 +1,28 @@
+Status,Status
+"Account Id","Account Id"
+"Access Token","Access Token"
+"Public Key","Public Key"
+"Refresh Token","Refresh Token"
+Add,Add
+"Connect New Account","Connect New Account"
+Disabled,Disabled
+Enabled,Enabled
+"You are connected to PagBank. =)","You are connected to PagBank. =)"
+"Unable to get the code, try again. =(","Unable to get the code, try again. =("
+"No sellers available","No sellers available"
+"No active sellers available","No active sellers available"
+Expiration,Expiration
+Link,Link
+"Download the Boleto","Download the Boleto"
+"Line Code","Line Code"
+"Payer Name","Payer Name"
+"Payer Tax Id","Payer Tax Id"
+"Pay by Compute","Pay by Compute"
+"Pay by Mobile","Pay by Mobile"
+"Payer Phone","Payer Phone"
+"Pix Qr Code","Pix Qr Code"
+"Pix Copy and Paste","Pix Copy and Paste"
+"Dynamic Accounts","Dynamic Accounts"
+Enable,Enable
+Accounts,Accounts
+"account_id","Account Id"
