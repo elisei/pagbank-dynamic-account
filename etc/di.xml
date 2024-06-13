@@ -18,6 +18,15 @@
 
     <preference for="PagBank\PaymentMagento\Gateway\Response\VaultDetailsHandler" type="O2TI\PagBankDynamicAccount\Plugin\PagBank\Gateway\Response\VaultDetailsHandlerPlugin" />
 
+    <!-- Console -->
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="refresh_token" xsi:type="object">O2TI\PagBankDynamicAccount\Console\Command\Basic\RefreshToken</item>
+            </argument>
+        </arguments>
+    </type>
+
     <!-- Plugin add New Config Provider for Dynamic Account -->
     <type name="PagBank\PaymentMagento\Model\Ui\ConfigProviderCc">
         <plugin name="o2ti_dynamic_account_plugin" type="O2TI\PagBankDynamicAccount\Plugin\PagBank\Model\Ui\ConfigProviderCcPlugin" />

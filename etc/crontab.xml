@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * PagBank Payment Magento Module.
+ *
+ * Copyright © 2023 PagBank. All rights reserved.
+ *
+ * @author    Bruno Elisei <brunoelisei@o2ti.com>
+ * @license   See LICENSE for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="o2ti_dynamic_account_base">
+        <job name="o2ti_refresh_token" instance="O2TI\PagBankDynamicAccount\Cron\RefreshToken" method="execute">
+            <schedule>0 0 1 */6 *</schedule>
+        </job>
+    </group>
+</config>

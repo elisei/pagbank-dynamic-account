@@ -133,6 +133,34 @@ class Credential
     }
 
     /**
+     * Set Refresh New Configs.
+     *
+     * @param array $configs
+     *
+     * @return void
+     */
+    public function setRefreshNewConfigs(
+        $configs
+    ) {
+        $scope = ScopeInterface::SCOPE_WEBSITES;
+        $currentData = [];
+
+        $environment = $this->configBase->getEnvironmentMode();
+
+        $basePathConfig = 'payment/pagbank_paymentmagento/%s_%s';
+
+        $updatedSerializedValue = $this->serializer->serialize($configs);
+
+        $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT;
+
+        $this->resourceConfig->saveConfig(
+            sprintf($basePathConfig, 'dynamic_accounts', $environment),
+            $updatedSerializedValue,
+            $scope
+        );
+    }
+
+    /**
      * Get Authorize.
      *
      * @param int    $storeId
@@ -215,17 +243,17 @@ class Credential
     /**
      * Generate New oAuth.
      *
+     * @param string $currentRefresh
      * @param int $storeId
      *
      * @return string
      */
-    public function generateNewoAuth(int $storeId = 0)
+    public function generateNewOAuth($currentRefresh, int $storeId = 0)
     {
         $url = $this->configBase->getApiUrl($storeId);
         $uri = $url.'oauth2/refresh';
         $header = $this->configBase->getPubHeader($storeId);
         $apiConfigs = $this->configBase->getApiConfigs();
-        $currentRefresh = $this->configBase->getMerchantGatewayRefreshOauth($storeId);
 
         $data = [
             'grant_type'    => 'refresh_token',
