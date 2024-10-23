@@ -128,4 +128,23 @@ class Data extends AbstractHelper
 
         return null;
     }
+
+    /**
+     * Get Api Headers By Account Id.
+     *
+     * @param string $accountId
+     * @param int|null $storeId
+     *
+     * @return array
+     */
+    public function getApiHeadersByAccountId($accountId, $storeId = null)
+    {
+        $oAuth = $this->getOauthByAccountId($accountId);
+
+        return [
+            'Content-Type'      => 'application/json',
+            'Authorization'     => 'Bearer '.$oAuth,
+            'x-api-version'     => '4.0'
+        ];
+    }
 }

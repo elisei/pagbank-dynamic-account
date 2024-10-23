@@ -32,6 +32,10 @@
         <plugin name="o2ti_dynamic_account_plugin" type="O2TI\PagBankDynamicAccount\Plugin\PagBank\Model\Ui\ConfigProviderCcPlugin" />
     </type>
 
+    <type name="PagBank\PaymentMagento\Model\Api\ThreeDsSession">
+        <plugin name="o2ti_pagbank_dynamic_account_3ds_session_plugin" type="O2TI\PagBankDynamicAccount\Plugin\PagBank\Model\Api\ThreeDsSessionPlugin" />
+    </type>
+
     <type name="PagBank\PaymentMagento\Gateway\Http\TransferFactory">
         <plugin name="modify_transfer_factory" type="O2TI\PagBankDynamicAccount\Plugin\PagBank\Gateway\Http\ModifyTransferFactory" sortOrder="10"/>
     </type>

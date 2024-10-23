@@ -15,6 +15,7 @@ use Magento\Store\Model\ScopeInterface;
 use Magento\Quote\Api\Data\CartInterface;
 use O2TI\PagBankDynamicAccount\Helper\Data;
 use PagBank\PaymentMagento\Model\Ui\ConfigProviderCc;
+use Magento\Framework\Session\SessionManager;
 
 class ConfigProviderCcPlugin
 {
@@ -34,20 +35,28 @@ class ConfigProviderCcPlugin
     protected $helper;
 
     /**
+     * @var SessionManager
+     */
+    protected $session;
+
+    /**
      * Construct.
      *
      * @param ScopeConfigInterface $scopeConfig
      * @param CartInterface $cart
      * @param Data $helper
+     * @param SessionManager $session
      */
     public function __construct(
         ScopeConfigInterface $scopeConfig,
         CartInterface $cart,
-        Data $helper
+        Data $helper,
+        SessionManager $session
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->cart = $cart;
         $this->helper = $helper;
+        $this->session = $session;
     }
 
     /**
@@ -62,8 +71,6 @@ class ConfigProviderCcPlugin
         $result = $proceed();
         $storeId = $this->cart->getStoreId();
 
-        // Accounts vai ser sorteado no helper passando o cart.
-        // assim quiser pode implementar nova lógica baseado no carrinho.
         $sellerData = $this->helper->getRandomSeller($this->cart);
         
         $accountsEnabled = $this->scopeConfig->getValue(
@@ -80,6 +87,8 @@ class ConfigProviderCcPlugin
         if (isset($result['payment']['pagbank_paymentmagento_cc']['public_key']) && $accountsEnabled) {
             $result['payment']['pagbank_paymentmagento_cc']['public_key'] = $sellerData['public_key'];
         }
+
+        $this->session->setSellerAccountId($sellerData['account_id']);
       
         return $result;
     }
